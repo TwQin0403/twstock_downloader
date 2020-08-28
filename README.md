@@ -30,7 +30,7 @@ twstock_downloader.get(filepath='C:\Users\Qin\workspace\twstock_downloader\twsto
 
 
 #### How to load the data
-檔案的格式會長成表的中文名對應表格的json結構，可用下列程式還原為表名:pandas.DataFrame的字典結構
+存出來的檔案是一個json檔案，基本上為日期對應每日的股價的資料格式，可用下面的程式碼還原為日期(字串)對應pandas.DataFrame的格式
 
 ```python
 with open('download_TWCB.json','r',encoding='utf-8') as f:
@@ -39,3 +39,5 @@ with open('download_TWCB.json','r',encoding='utf-8') as f:
 test_data.pop('current'.None)
 test_data = {key:pd.read_json(test_data[key]) for key in test_data.keys()} 
 ```
+
+其中，current這個key是用來告訴程式要從那邊開始抓起，如果不想從2004-02-11開始抓取，可以先產生一個空的json的檔案，裡面為{'current':'想要的日期(例如:20200811)'}
