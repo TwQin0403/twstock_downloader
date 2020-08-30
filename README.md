@@ -33,7 +33,7 @@ twstock_downloader.get(filepath='C:\Users\Qin\workspace\twstock_downloader\twsto
 存出來的檔案是一個json檔案，基本上為日期對應每日的股價的資料格式，可用下面的程式碼還原為日期(字串)對應pandas.DataFrame的格式
 
 ```python
-with open('download_TWCB.json','r',encoding='utf-8') as f:
+with open('result.json','r',encoding='utf-8') as f:
     test_data = json.load(f)
 
 test_data.pop('current'.None)
