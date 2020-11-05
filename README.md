@@ -36,7 +36,7 @@ twstock_downloader.get(filepath='C:\Users\Qin\workspace\twstock_downloader\twsto
 with open('result.json','r',encoding='utf-8') as f:
     test_data = json.load(f)
 
-test_data.pop('current'.None)
+test_data.pop('current', None)
 test_data = {key:pd.read_json(test_data[key]) for key in test_data.keys()} 
 ```
 
